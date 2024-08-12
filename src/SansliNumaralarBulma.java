@@ -9,8 +9,7 @@ public class SansliNumaralarBulma {
         // 1. Rastgele Sayılar Üretme
         for (int i = 0; i < 10000; i++) {
             int sayi = random.nextInt(100) + 1;
-            sayiMap.computeIfAbsent(sayi, k -> 0);
-            sayiMap.put(sayi, sayiMap.get(sayi) + 1);
+            sayiMap.put(sayi, sayiMap.getOrDefault(sayi, 0) + 1);
         }
 
         System.out.println("Üretilen sayılar ve tekrar sayıları:");
