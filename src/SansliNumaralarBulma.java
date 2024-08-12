@@ -6,7 +6,7 @@ public class SansliNumaralarBulma {
         Random random = new Random();
 
         Map<Integer, Integer> sayiMap = new HashMap<>();
-        // 1. Rastgele Sayılar Üretme
+
         for (int i = 0; i < 10000; i++) {
             int sayi = random.nextInt(100) + 1;
             sayiMap.put(sayi, sayiMap.getOrDefault(sayi, 0) + 1);
@@ -15,7 +15,7 @@ public class SansliNumaralarBulma {
         System.out.println("Üretilen sayılar ve tekrar sayıları:");
         sayiMap.forEach((key, value) -> System.out.println("Sayı: " + key + " - Tekrar Sayısı: " + value));
 
-        // 2. Liste Oluşturma
+
         List<Integer> sayiListesi = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry : sayiMap.entrySet()) {
             Integer sayi = entry.getKey();
@@ -27,7 +27,7 @@ public class SansliNumaralarBulma {
 
         Set<Integer> sansliSayi = new HashSet<>();
 
-        // 3. Şanslı Numaraları Bulma
+
         while (sansliSayi.size() < 10 && !sayiListesi.isEmpty()) {
             Integer rastgeleSayi = sayiListesi.get(random.nextInt(sayiListesi.size()));
             sansliSayi.add(rastgeleSayi);
@@ -36,7 +36,7 @@ public class SansliNumaralarBulma {
         System.out.println("\nŞanslı Numaralar : ");
         sansliSayi.forEach(System.out::println);
 
-        //4. Şanslı Numaralar Üzerinde İşlemler
+
         List<Integer> ellidenBuyuk = sansliSayi.stream()
                 .filter(num -> num > 50)
                 .toList();
